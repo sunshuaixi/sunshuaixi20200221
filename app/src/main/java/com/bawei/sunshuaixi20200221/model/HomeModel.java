@@ -1,5 +1,7 @@
 package com.bawei.sunshuaixi20200221.model;
 
+import android.util.Log;
+
 import com.bawei.sunshuaixi20200221.contract.IHomeContract;
 import com.bawei.sunshuaixi20200221.utils.VolleyUtil;
 
@@ -14,6 +16,7 @@ public class HomeModel implements IHomeContract.IModel {
         VolleyUtil.getInstance().doGet(url, new VolleyUtil.Callack() {
             @Override
             public void success(String str) {
+                Log.i("xxx",str);
                 myCallack.onListSuccess(str);
             }
 
@@ -29,6 +32,7 @@ public class HomeModel implements IHomeContract.IModel {
         VolleyUtil.getInstance().doGet(url, new VolleyUtil.Callack() {
             @Override
             public void success(String str) {
+                Log.i("xxx",str);
                 callack.onXbannerSuccess(str);
             }
 

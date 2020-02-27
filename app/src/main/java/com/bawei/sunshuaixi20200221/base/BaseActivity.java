@@ -10,7 +10,7 @@ import com.bawei.sunshuaixi20200221.R;
  * Author:孙帅喜
  * Descriotion:
  */
-public abstract class BaseActivity<P extends IbaseView> extends AppCompatActivity {
+public abstract class BaseActivity<P extends BasePresenter> extends AppCompatActivity implements IbaseView{
 
     private P presenter;
 
@@ -26,7 +26,9 @@ public abstract class BaseActivity<P extends IbaseView> extends AppCompatActivit
         presenter = initPresenter();
     }
 
-
+    public P getPresenter(){
+        return presenter;
+    }
 
     //创建一个返回P层的方法
     public abstract P initPresenter();
@@ -35,7 +37,7 @@ public abstract class BaseActivity<P extends IbaseView> extends AppCompatActivit
     protected void onDestroy() {
         super.onDestroy();
         if(presenter!=null){
-
+            presenter.detachView();
         }
     }
 

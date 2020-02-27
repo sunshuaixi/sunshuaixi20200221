@@ -1,5 +1,7 @@
 package com.bawei.sunshuaixi20200221.presenter;
 
+import android.util.Log;
+
 import com.bawei.sunshuaixi20200221.base.BasePresenter;
 import com.bawei.sunshuaixi20200221.base.IbaseView;
 import com.bawei.sunshuaixi20200221.contract.IHomeContract;
@@ -25,6 +27,7 @@ public class HomePresenter extends BasePresenter implements IHomeContract.IPrese
         homeModel.getList(url, new IHomeContract.IModel.MyCallack() {
             @Override
             public void onListSuccess(String str) {
+                Log.i("xxx",str);
                 IbaseView view = getView();
                 if(view instanceof IHomeContract.IView){
                     ((IHomeContract.IView) view).onListSuccess(str);
@@ -46,6 +49,7 @@ public class HomePresenter extends BasePresenter implements IHomeContract.IPrese
         homeModel.getBanner(url, new IHomeContract.IModel.Callack() {
             @Override
             public void onXbannerSuccess(String str) {
+                Log.i("xxx",str);
                 IbaseView view = getView();
                 if(view instanceof IHomeContract.IView){
                     ((IHomeContract.IView) view).onXbannerSuccess(str);

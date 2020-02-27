@@ -1,7 +1,6 @@
 package com.bawei.sunshuaixi20200221.base;
 
 import java.lang.ref.WeakReference;
-import java.util.HashSet;
 
 /**
  * TIme:2020/2/26

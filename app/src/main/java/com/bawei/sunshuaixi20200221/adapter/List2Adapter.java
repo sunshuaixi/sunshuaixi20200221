@@ -19,18 +19,18 @@ import java.util.List;
  * Author:孙帅喜
  * Descriotion:
  */
-public class ListAdapter extends BaseAdapter {
+public class List2Adapter extends BaseAdapter {
     Context context;
-    List<ListBean.ResultBean.RxxpBean.CommodityListBean> commodityList;
+    List<ListBean.ResultBean.PzshBean.CommodityListBeanX> commodityList2;
 
-    public ListAdapter(Context context, List<ListBean.ResultBean.RxxpBean.CommodityListBean> commodityList) {
+    public List2Adapter(MainActivity mainActivity, List<ListBean.ResultBean.PzshBean.CommodityListBeanX> commodityList2) {
         this.context = context;
-        this.commodityList = commodityList;
+        this.commodityList2 = commodityList2;
     }
 
     @Override
     public int getCount() {
-        return commodityList.size();
+        return commodityList2.size();
     }
 
     @Override
@@ -54,7 +54,7 @@ public class ListAdapter extends BaseAdapter {
         }else{
            hoder=(VoiewHoder) convertView.getTag();
         }
-        ListBean.ResultBean.RxxpBean.CommodityListBean commodityListBean = commodityList.get(position);
+        ListBean.ResultBean.PzshBean.CommodityListBeanX commodityListBean = commodityList2.get(position);
         String commodityName = commodityListBean.getCommodityName();
         String masterPic = commodityListBean.getMasterPic();
         hoder.tv.setText(commodityName);

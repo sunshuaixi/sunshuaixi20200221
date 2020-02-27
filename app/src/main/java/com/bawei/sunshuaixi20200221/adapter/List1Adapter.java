@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bawei.sunshuaixi20200221.R;
-import com.bawei.sunshuaixi20200221.activity.MainActivity;
 import com.bawei.sunshuaixi20200221.bean.ListBean;
 import com.bumptech.glide.Glide;
 
@@ -19,11 +18,11 @@ import java.util.List;
  * Author:孙帅喜
  * Descriotion:
  */
-public class ListAdapter extends BaseAdapter {
+public class List1Adapter extends BaseAdapter {
     Context context;
-    List<ListBean.ResultBean.RxxpBean.CommodityListBean> commodityList;
+    List<ListBean.ResultBean.MlssBean.CommodityListBeanXX> commodityList;
 
-    public ListAdapter(Context context, List<ListBean.ResultBean.RxxpBean.CommodityListBean> commodityList) {
+    public List1Adapter(Context context, List<ListBean.ResultBean.MlssBean.CommodityListBeanXX> commodityList) {
         this.context = context;
         this.commodityList = commodityList;
     }
@@ -47,14 +46,14 @@ public class ListAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         VoiewHoder hoder = new VoiewHoder();
         if(convertView==null){
-            convertView=View.inflate(context, R.layout.item,null);
+            convertView=View.inflate(context, R.layout.item1,null);
             hoder.iv=convertView.findViewById(R.id.iv);
             hoder.tv=convertView.findViewById(R.id.tv);
             convertView.setTag(hoder);
         }else{
            hoder=(VoiewHoder) convertView.getTag();
         }
-        ListBean.ResultBean.RxxpBean.CommodityListBean commodityListBean = commodityList.get(position);
+        ListBean.ResultBean.MlssBean.CommodityListBeanXX commodityListBean = commodityList.get(position);
         String commodityName = commodityListBean.getCommodityName();
         String masterPic = commodityListBean.getMasterPic();
         hoder.tv.setText(commodityName);
