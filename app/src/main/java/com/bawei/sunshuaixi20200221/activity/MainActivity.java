@@ -1,9 +1,9 @@
 package com.bawei.sunshuaixi20200221.activity;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -14,7 +14,6 @@ import com.bawei.sunshuaixi20200221.adapter.List2Adapter;
 import com.bawei.sunshuaixi20200221.adapter.ListAdapter;
 import com.bawei.sunshuaixi20200221.base.BaseActivity;
 import com.bawei.sunshuaixi20200221.base.BasePresenter;
-import com.bawei.sunshuaixi20200221.base.IbaseView;
 import com.bawei.sunshuaixi20200221.bean.ListBean;
 import com.bawei.sunshuaixi20200221.bean.XbannerBean;
 import com.bawei.sunshuaixi20200221.contract.IHomeContract;
@@ -72,19 +71,47 @@ public class MainActivity extends BaseActivity implements IHomeContract.IView {
         ListBean listBean = gson.fromJson(str, ListBean.class);
         ListBean.ResultBean result = listBean.getResult();
         ListBean.ResultBean.RxxpBean rxxp = result.getRxxp();
-        List<ListBean.ResultBean.RxxpBean.CommodityListBean> commodityList = rxxp.getCommodityList();
+        final List<ListBean.ResultBean.RxxpBean.CommodityListBean> commodityList = rxxp.getCommodityList();
         ListAdapter listAdapter = new ListAdapter(this, commodityList);
         gv.setAdapter(listAdapter);
-
+       gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+           @Override
+           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+               ListBean.ResultBean.RxxpBean.CommodityListBean commodityListBean = commodityList.get(position);
+               String commodityName = commodityListBean.getCommodityName();
+               Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+               intent.putExtra("name",commodityName);
+               startActivity(intent);
+           }
+       });
         ListBean.ResultBean.MlssBean mlss = result.getMlss();
-        List<ListBean.ResultBean.MlssBean.CommodityListBeanXX> commodityList1 = mlss.getCommodityList();
+        final List<ListBean.ResultBean.MlssBean.CommodityListBeanXX> commodityList1 = mlss.getCommodityList();
         List1Adapter list1Adapter = new List1Adapter(this, commodityList1);
         lv.setAdapter(list1Adapter);
-
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ListBean.ResultBean.MlssBean.CommodityListBeanXX commodityListBean = commodityList1.get(position);
+                String commodityName = commodityListBean.getCommodityName();
+                Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                intent.putExtra("name",commodityName);
+                startActivity(intent);
+            }
+        });
         ListBean.ResultBean.PzshBean pzsh = result.getPzsh();
-        List<ListBean.ResultBean.PzshBean.CommodityListBeanX> commodityList2 = pzsh.getCommodityList();
+        final List<ListBean.ResultBean.PzshBean.CommodityListBeanX> commodityList2 = pzsh.getCommodityList();
         List2Adapter list2Adapter = new List2Adapter(this, commodityList2);
         gv1.setAdapter(list2Adapter);
+        gv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ListBean.ResultBean.PzshBean.CommodityListBeanX commodityListBean = commodityList2.get(position);
+                String commodityName = commodityListBean.getCommodityName();
+                Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                intent.putExtra("name",commodityName);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -111,6 +138,6 @@ public class MainActivity extends BaseActivity implements IHomeContract.IView {
 
     @Override
     public void onXbannerFailure(String str) {
-
+        Log.i("xxx",str);
     }
 }
