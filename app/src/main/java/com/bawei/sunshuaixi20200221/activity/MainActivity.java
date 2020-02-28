@@ -7,6 +7,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.bawei.sunshuaixi20200221.R;
 import com.bawei.sunshuaixi20200221.adapter.List1Adapter;
@@ -31,10 +32,13 @@ public class MainActivity extends BaseActivity implements IHomeContract.IView {
     private XBanner xb;
     private GridView gv1;
     private ListView lv;
+    private TextView tv3;
+    private TextView tv2;
+    private TextView tv1;
 
 
     @Override
-    public BasePresenter initPresenter() {
+    public BasePresenter getPresenter() {
         return new HomePresenter(this);
     }
 
@@ -49,6 +53,9 @@ public class MainActivity extends BaseActivity implements IHomeContract.IView {
         gv = findViewById(R.id.gv);
         lv = findViewById(R.id.lv);
         gv1 = findViewById(R.id.gv1);
+        tv1 = findViewById(R.id.tv1);
+        tv2 = findViewById(R.id.tv2);
+        tv3 = findViewById(R.id.tv3);
 
     }
 
@@ -84,6 +91,7 @@ public class MainActivity extends BaseActivity implements IHomeContract.IView {
                startActivity(intent);
            }
        });
+
         ListBean.ResultBean.MlssBean mlss = result.getMlss();
         final List<ListBean.ResultBean.MlssBean.CommodityListBeanXX> commodityList1 = mlss.getCommodityList();
         List1Adapter list1Adapter = new List1Adapter(this, commodityList1);

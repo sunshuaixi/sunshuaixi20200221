@@ -23,7 +23,7 @@ public class List2Adapter extends BaseAdapter {
     Context context;
     List<ListBean.ResultBean.PzshBean.CommodityListBeanX> commodityList2;
 
-    public List2Adapter(MainActivity mainActivity, List<ListBean.ResultBean.PzshBean.CommodityListBeanX> commodityList2) {
+    public List2Adapter(Context context, List<ListBean.ResultBean.PzshBean.CommodityListBeanX> commodityList2) {
         this.context = context;
         this.commodityList2 = commodityList2;
     }
@@ -47,7 +47,7 @@ public class List2Adapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         VoiewHoder hoder = new VoiewHoder();
         if(convertView==null){
-            convertView=View.inflate(context, R.layout.item,null);
+            convertView=View.inflate(context, R.layout.item2,null);
             hoder.iv=convertView.findViewById(R.id.iv);
             hoder.tv=convertView.findViewById(R.id.tv);
             convertView.setTag(hoder);

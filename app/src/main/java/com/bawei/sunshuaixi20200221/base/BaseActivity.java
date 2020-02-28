@@ -23,15 +23,12 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         initView();
         //获取数据
         initData();
-        presenter = initPresenter();
+        presenter = getPresenter();
     }
 
-    public P getPresenter(){
-        return presenter;
-    }
+    public abstract P getPresenter();
 
-    //创建一个返回P层的方法
-    public abstract P initPresenter();
+
 
     @Override
     protected void onDestroy() {

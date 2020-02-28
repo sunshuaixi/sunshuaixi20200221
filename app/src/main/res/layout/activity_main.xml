@@ -9,28 +9,52 @@
 <com.stx.xhb.xbanner.XBanner
     android:id="@+id/xb"
     android:layout_width="match_parent"
-    android:layout_height="200dp">
+    android:layout_height="@dimen/dp150">
 
 </com.stx.xhb.xbanner.XBanner>
+<TextView
+    android:id="@+id/tv1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:background="@mipmap/bj"
+    android:text="热销新品"
+    android:textColor="@android:color/holo_red_light"/>
 <GridView
+    android:layout_marginTop="10dp"
     android:id="@+id/gv"
     android:numColumns="3"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-
+    android:layout_height="match_parent">
 </GridView>
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@mipmap/bj"
+        android:text="魔力时尚"
+        android:textColor="@android:color/holo_blue_dark"/>
 <ListView
+    android:layout_marginTop="10dp"
     android:id="@+id/lv"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
 </ListView>
+    <TextView
+        android:id="@+id/tv3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@mipmap/bj"
+        android:text="品质生活"
+        android:textColor="@android:color/holo_red_light"/>
     <GridView
+        android:layout_marginTop="10dp"
         android:id="@+id/gv1"
         android:layout_width="match_parent"
         android:numColumns="2"
         android:layout_height="wrap_content">
-
     </GridView>
 </LinearLayout>

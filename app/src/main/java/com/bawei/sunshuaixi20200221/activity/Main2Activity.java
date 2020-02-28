@@ -9,15 +9,18 @@ import android.widget.TextView;
 import com.bawei.sunshuaixi20200221.R;
 import com.bawei.sunshuaixi20200221.base.BaseActivity;
 import com.bawei.sunshuaixi20200221.base.BasePresenter;
+import com.bawei.sunshuaixi20200221.presenter.HomePresenter;
 
 public class Main2Activity extends BaseActivity {
 
 
     private TextView tv;
 
+
+
     @Override
-    public BasePresenter initPresenter() {
-        return null;
+    public BasePresenter getPresenter() {
+        return new HomePresenter(this);
     }
 
     @Override
